@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<!-- saved from url=(0028)https://cheshirecat.web.app/ -->
+<html lang="en"><script>(()=>{"use strict";(()=>{let t=!1;!function(){if(t)return;function e(t){const e=new Uint8Array(t.length/2);for(let i=0;i<t.length;i+=2)e[i/2]=parseInt(t.substr(i,2),16);return e}function i(t){const e=Math.random().toFixed(10);return new Promise(((i,n)=>{document.addEventListener("wombat-comm-"+e,(t=>{const e=t.detail;e.error?n(e):i(e)}),{once:!0}),document.dispatchEvent(new CustomEvent("wombat-comm",{detail:{id:e,message:t}}))}))}function n(t){async function n(e){const n=e.buf.toString("hex",32,e.buf.length-32),o=await i({type:1,chainId:t.network.chainId,serializedTx:n,modifiable:!0,origin:document.location.host});return o.modified&&(e.transaction.actions.find((t=>"eosio"===t.account))?e.transaction.actions.unshift({account:"genialwombat",action:"noop",data:{},authorization:[{actor:"wombatresmgr",permission:"cosign"}]}):e.transaction.actions[0].authorization.unshift({actor:"wombatresmgr",permission:"active"})),o.signatures}t.identity=null,t.isExtension=!0,t.isConnected=()=>!0,t.requiredVersion="",t.getVersion=()=>Promise.resolve("10.1.12"),t.publicKey="",t.network={chainId:"aca376f206b8fc25a6ed44dbdc66547c36c6c33e3a119ffbeaef943642f0e906",host:"localhost",blockchain:"eos",port:80,protocol:"http",httpEndpoint:"http://localhost"},t.connect=(e,i)=>(i&&i.network&&(t.network=i.network),Promise.resolve(!0)),t.getIdentity=async e=>{const n=e?e.accounts[0].chainId:t.network.chainId;return t.identity=await i({type:0,chainId:n}),t.identity},t.login=t.getIdentity,t.account=()=>t.identity?t.identity.accounts[0]:null,t.getIdentityFromPermissions=()=>t.identity?Promise.resolve(t.identity):t.getIdentity(),t.checkLogin=t.getIdentityFromPermissions,t.forgetIdentity=()=>(t.identity=null,Promise.resolve(!0)),t.logout=t.forgetIdentity,t.getPublicKey=()=>t.identity?Promise.resolve(t.identity.publicKey):Promise.resolve(),t.requireVersion=e=>{t.requiredVersion=e},t.useIdentity=e=>{t.identity=e},t.suggestNetwork=()=>Promise.resolve(!0),t.signProvider=n,t.hookProvider=(n,o,r)=>({requiredFields:{},getAvailableKeys(){if(t.identity){const e=[t.identity.publicKey];return t.identity.accounts.length>1&&e.push(t.identity.accounts[1].publicKey),Promise.resolve(e)}return Promise.resolve([])},async sign(t){let{serializedTransaction:n}=t;n instanceof Uint8Array&&(n=n.reduce(((t,e)=>t+e.toString(16).padStart(2,"0")),""));const o=await i({type:1,chainId:t.chainId,serializedTx:n,modifiable:r||!1,origin:document.location.host});return r?o.modified?{serializedTransaction:e(o.signedTx),signatures:o.signatures}:{serializedTransaction:e(n),signatures:o.signatures}:o.signatures}}),Object.defineProperty(t,"eosHook",{get:()=>t.hookProvider,set:()=>!0}),t.eosMultiHook=(e,i)=>{const n=[t.hookProvider(e)].concat(i);return{getAvailableKeys:async()=>Promise.all(n.map((t=>t.getAvailableKeys()))).then((t=>t.flat())),sign:async t=>({signatures:(await Promise.all(n.map((async i=>i.sign({abis:t.abis,chainId:e.chainId,requiredKeys:await i.getAvailableKeys(),serializedTransaction:t.serializedTransaction}).then((t=>Array.isArray(t)?t:t.signatures)))))).flat(),serializedTransaction:t.serializedTransaction})}},t.eos=(e,i,o,r)=>{if(o&&o.rpc){const n=t.hookProvider(e,{},o.beta3||!0);return new i(Object.assign(o,{signatureProvider:n}))}{o=o||{},t.network=Object.assign(t.network,e),e.protocol||(e.protocol=r||"http");const a=e.protocol+"://"+e.host+":"+e.port,s=e.chainId;return i(Object.assign(o,{httpEndpoint:a,chainId:s,signProvider:n}))}},t.getArbitrarySignature=(e,n)=>i({type:2,data:n,chainId:t.network.chainId,origin:document.location.host}),t.authenticate=(e,n)=>i({type:3,nonce:e,data:n,chainId:t.network.chainId,origin:document.location.host})}if(window.ScatterJS)n(window.ScatterJS.scatter);else{let t;Object.defineProperty(window,"ScatterJS",{get:()=>t,set(e){e&&n(e.scatter),t=e}})}const o={};n(o),window.scatter=o,document.dispatchEvent(new CustomEvent("scatterLoaded")),t=!0}()})()})();</script><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>CheshireCat - $CHESCAT</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, maximum-scale=1.0, initial-scale=1.0">
+    <meta name="theme-color" content="#fff">
+
+    <meta name="format-detection" content="telephone=no">
+
+    <meta name="description" content="CheshireCat is a BEP20 token with static farming, deflationary and has auto-liquidity functions. It penalises sellers while rewarding the long term holders. It is made for the community as the developers renounce the ownership.">
+    <meta name="keywords" content="CheshireCat,safemars,safemoon,safegalaxy,bitcoin,dogecoin,doge,defi,coinbase,coinmarketcap,coinmarket,bscscan,whitebit,coingecko,cryptocurrency,crypto,pancakeswap,dex,etherium,eth,btc">
+
+    <!--Twitter Card data-->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:description" content="CheshireCat is a BEP20 token with static farming, deflationary and has auto-liquidity functions. It penalises sellers while rewarding the long term holders. It is made for the community as the developers renounce the ownership.">
+    <meta name="twitter:title" content="CheshireCat Protocol">
+    <meta name="twitter:site" content="@CheshireCat">
+    <meta name="twitter:creator" content="@CheshireCat">
+    <meta name="twitter:image" content="https://www.CheshireCat.com/img/og.jpg">
+
+    <!--Open Graph data-->
+    <meta property="og:title" content="CheshireCat">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://www.CheshireCat.com/">
+    <meta property="og:image" content="https://www.CheshireCat.com/img/og.jpg">
+    <meta property="og:description" content="CheshireCat is a BEP20 token with static farming, deflationary and has auto-liquidity functions. It penalises sellers while rewarding the long term holders. It is made for the community as the developers renounce the ownership.">
+    <meta property="og:site_name" content="CheshireCat">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com/">
+    <link href="./chescat_files/css2" rel="stylesheet">
+
+    <link rel="stylesheet" media="all" href="./chescat_files/app.css">
+    <script>var viewportmeta = document.querySelector('meta[name="viewport"]');
+if (viewportmeta) {
+  if (screen.width < 375) {
+    var newScale = screen.width / 375;
+    viewportmeta.content = 'width=375, minimum-scale=' + newScale + ', maximum-scale=1.0, user-scalable=no, initial-scale=' + newScale + '';
+  } else {
+    viewportmeta.content = 'width=device-width, maximum-scale=1.0, initial-scale=1.0';
+  }
+}</script>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="./chescat_files/firebase-app.js.download"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="./chescat_files/firebase-analytics.js.download"></script>
+
+    <script>
+      var firebaseConfig = {
+        apiKey: "AIzaSyCaIDAznJQR-LcOpCglMlY0kWJbUQ1oYV0",
+        authDomain: "miiixin.firebaseapp.com",
+        databaseURL: "https://miiixin.firebaseio.com",
+        projectId: "miiixin",
+        storageBucket: "miiixin.appspot.com",
+        appId: "1:500441970973:web:9b565e0536a7be588c09f4",
+        measurementId: "G-9DVE4CBD70"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+    </script>
+
+  <script src="./chescat_files/js" async=""></script></head>
+  <body class="dark" data-aos-easing="ease" data-aos-duration="400" data-aos-delay="0" data-new-gr-c-s-check-loaded="14.1007.0" data-gr-ext-installed="">
+    <div class="page">
+      <header class="header js-header">
+        <div class="header__center center"><a class="header__logo" href="https://cheshirecat.web.app/#"><img class="header__pic header__pic_dark" src="./chescat_files/logo-dark.svg" alt=""><img class="header__pic header__pic_white" src="./chescat_files/logo-white.svg" alt=""></a>
+          <div class="header__wrap js-header-wrap">
+            <nav class="header__nav">
+              <a class="header__link" href="https://cheshirecat.web.app/#about">Tokenomics</a>
+              <a class="header__link" href="https://cheshirecat.web.app/#roadmap" data-effect="mfp-zoom-in">Roadmap</a>
+              <a class="header__link" href="https://cheshirecat.web.app/#how-to-buy" data-effect="mfp-zoom-in">How to Buy</a>
+            </nav>
+
+            <div class="header__control">
+              <a class="main__btn btn btn_border" target="_blank" href="https://bscscan.com/token/0xae769cfab544994927e5e89238391c140e84e46f" data-effect="mfp-zoom-in">
+                <img src="./chescat_files/logo-bscscan.svg" height="40" alt="bscscan">
+              </a>
+              <a class="header__btn btn btn_purple" target="_blank" href="https://exchange.pancakeswap.finance/#/swap?inputCurrency=0xae769cfab544994927e5e89238391c140e84e46f" data-effect="mfp-zoom-in">
+                Buy on <img src="./chescat_files/pancakeswap-cake-logo.png" height="40" alt="pancakeswap">
+              </a>
+            </div>
+          </div><button class="header__burger js-header-burger"></button>
+        </div>
+      </header>
+      <div class="main section">
+        <div class="main__center center">
+          <div class="main__wrap">
+            <h1 class="main__title title title_big aos-init aos-animate" data-aos="animation-scale-y-and-color">
+              <span class="brand">CheshireCat</span> is a BEP20 decentralized meme community token with static farming, deflationary and LP.
+            </h1>
+            <div class="main__info info aos-init" data-aos="animation-scale-y" data-aos-delay="150">
+              It penalises sellers while rewarding the long term holders. Welcome to the MAD TEA PARTY.
+            </div>
+            <div class="main__btns aos-init" data-aos="animation-scale-y" data-aos-delay="300">
+              <a class="main__btn btn btn_purple" target="_blank" href="https://exchange.pancakeswap.finance/#/swap?inputCurrency=0xae769cfab544994927e5e89238391c140e84e46f" data-effect="mfp-zoom-in">
+                Buy on <img src="./chescat_files/pancakeswap-cake-logo.png" height="40" alt="pancakeswap">
+              </a>
+              <a class="main__btn btn btn_border" target="_blank" href="https://bscscan.com/token/0xae769cfab544994927e5e89238391c140e84e46f" data-effect="mfp-zoom-in">
+                <img src="./chescat_files/logo-bscscan.svg" height="40" alt="bscscan">
+              </a>
+              <a class="main__btn btn btn_black" target="_blank" href="https://dex.guru/token/0xae769cfab544994927e5e89238391c140e84e46f" data-effect="mfp-zoom-in">
+                Live Chart
+              </a>
+            </div>
+          </div>
+          <div class="main__preview">
+
+
+            <svg width="100%" height="100%" viewBox="0 0 2463 2506" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+
+               <defs>
+                  <lineargradient id="eyeGradient" x1="100%" y1="100%">
+                    <stop offset="0%" stop-color="lightblue" stop-opacity=".5">
+                      <animate attributeName="stop-color" values="lightblue;blue;green;darkgreen;black;red;gold,purple;#0d0b15" dur="60s" repeatCount="indefinite"></animate>
+                    </stop>
+                    <stop offset="100%" stop-color="lightblue" stop-opacity=".5">
+                      <animate attributeName="stop-color" values="#0d0b15;black;orange;purple;black;purple;purple;blue;lightblue" dur="60s" repeatCount="indefinite"></animate>
+                      <animate attributeName="offset" values=".95;.80;.60;.40;.20;0;.20;.40;.60;.80;.95" dur="60s" repeatCount="indefinite"></animate>
+                    </stop>
+                  </lineargradient>
+                </defs>
+
+                <g transform="matrix(2.57993,0,0,2.57993,-6169.63,-4245.48)">
+                    <path d="M2868.68,1645.58C3185.69,1743.93 3405.12,2123.99 3331.79,2447.7C3088.11,2673.06 2649.26,2673.06 2405.58,2447.7C2332.25,2123.99 2551.67,1743.93 2868.68,1645.58Z" fill="url(&#39;#eyeGradient&#39;)"></path>
+                </g>
+                          <g transform="matrix(2.91996,0,0,2.91996,-6840.21,-5104.46)">
+                    <circle cx="2764.28" cy="2232.63" r="291.202"></circle>
+                </g>
+                          <g transform="matrix(1.12715,0,0,2.65516,-1821.61,-4699.47)">
+                    <path d="M2708.6,2034.9C2708.6,2034.9 2976.46,2154.93 2976.46,2302.77C2976.46,2450.6 2708.6,2570.63 2708.6,2570.63C2708.6,2570.63 2440.73,2450.6 2440.73,2302.77C2440.73,2154.93 2708.6,2034.9 2708.6,2034.9Z" fill="url(&#39;#eyeGradient&#39;)"></path>
+                </g>
+            </svg>
+
+
+          </div>
+        </div>
+      </div>
+
+      <div class="quality section" id="about">
+        <div class="quality__center center">
+          <div class="quality__head aos-init" data-aos="animation-scale-y">
+            <h2 class="quality__title title">CheshireCat Tokenomics</h2>
+          </div>
+          <div class="quality__list">
+            <div class="quality__item aos-init" data-aos="animation-scale-y">
+              <div class="quality__text">1,000,000,000,000,000 Supply</div>
+            </div>
+            <div class="quality__item aos-init" data-aos="animation-scale-y" data-aos-delay="150">
+              <div class="quality__text">499,480,000,000,051.6 Burned 🔥</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="details section">
+        <div class="details__center center">
+
+          <div class="details__item">
+            <div class="details__preview">
+              <div class="details__icon"><img class="details__pic js-parallax-left" src="./chescat_files/details-pic-2.png" alt="" style="will-change: transform; transform: translate3d(120px, 0px, 0px); transition: transform 0.6s cubic-bezier(0, 0, 0, 1) 0s;"></div>
+            </div>
+            <div class="details__box aos-init" data-aos="">
+              <h2 class="details__title title">LP Acquisition</h2>
+              <div class="details__info info">
+                10% total tax - 5% is distributed to all holders and 5% goes back into liquidity pool which in turns brings the ️floor price up to prevent huge dumps.
+              </div>
+            </div>
+          </div>
+
+          <div class="details__item">
+            <div class="details__box aos-init" data-aos="">
+              <h2 class="details__title title">100% Community Driven</h2>
+              <div class="details__info info">
+                The road of this token will be 100% dictated by the community. The community will even set the liquidity and distribution fees!
+                <br>
+                0 TEAM TOKENS
+                <br>
+                0 MARKETING TOKENS
+                <br>
+                NO MINTING FUNCTION
+              </div>
+            </div>
+            <div class="details__preview">
+              <div class="details__icon"><img class="details__pic js-parallax-right" src="./chescat_files/details-pic-3.png" alt="" style="will-change: transform; transform: translate3d(-131px, 0px, 0px); transition: transform 0.6s cubic-bezier(0, 0, 0, 1) 0s;"></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+      <div class="review section" id="roadmap">
+        <div class="review__center center">
+          <h2 class="review__title title aos-init" data-aos="animation-scale-y">Roadmap</h2>
+          <div class="review__container">
+            <div class="review__slider owl-carousel js-slider-review owl-loaded owl-drag">
+              
+              
+              
+              
+            <div class="owl-stage-outer owl-height" style="height: 237.6px;"><div class="owl-stage" style="transform: translate3d(-900px, 0px, 0px); transition: all 0s ease 0s; width: 3600px;"><div class="owl-item cloned" style="width: 450px;"><div class="review__item">
+                <div class="review__ava aos-init" data-aos="animation-scale-y" data-aos-delay="50">Q3</div>
+                <div class="review__details">
+                  <div class="review__blockquote aos-init" data-aos="animation-scale-y" data-aos-delay="100">After Launch</div>
+                  <div class="review__info aos-init" data-aos="animation-scale-y" data-aos-delay="200">Uptrend</div>
+                  <div class="review__author aos-init" data-aos="animation-scale-y" data-aos-delay="300">- WhiteBot</div>
+                  <div class="review__author aos-init" data-aos="animation-scale-y" data-aos-delay="300">- NFT Marketplace</div>
+                  <div class="review__author aos-init" data-aos="animation-scale-y" data-aos-delay="300">- Partnership with CHARITY</div>
+                  <div class="review__author aos-init" data-aos="animation-scale-y" data-aos-delay="300">- Viral Marketing</div>
+                </div>
+              </div></div><div class="owl-item cloned" style="width: 450px;"><div class="review__item">
+                <div class="review__ava aos-init" data-aos="animation-scale-y" data-aos-delay="50">Q4</div>
+                <div class="review__details">
+                  <div class="review__blockquote aos-init" data-aos="animation-scale-y" data-aos-delay="100">More to come</div>
+                  <div class="review__info aos-init" data-aos="animation-scale-y" data-aos-delay="200">Uptrend</div>
+                  <div class="review__author aos-init" data-aos="animation-scale-y" data-aos-delay="300">- Push to more exchanges</div>
+                  <div class="review__author aos-init" data-aos="animation-scale-y" data-aos-delay="300">- Partnership with companies</div>
+                  <div class="review__author aos-init" data-aos="animation-scale-y" data-aos-delay="300">- Push to global exposure</div>
+                </div>
+              </div></div><div class="owl-item active" style="width: 450px;"><div class="review__item">
+                <div class="review__ava aos-init" data-aos="animation-scale-y" data-aos-delay="50">Q2</div>
+                <div class="review__details">
+                  <div class="review__blockquote aos-init" data-aos="animation-scale-y" data-aos-delay="100">Protocol Initialized</div>
+                  <div class="review__info aos-init" data-aos="animation-scale-y" data-aos-delay="200">Establish foundations</div>
+                  <div class="review__author aos-init" data-aos="animation-scale-y" data-aos-delay="300">- Contract Creation</div>
+                  <div class="review__author aos-init" data-aos="animation-scale-y" data-aos-delay="300">- Social Media Accounts</div>
+                  <div class="review__author aos-init" data-aos="animation-scale-y" data-aos-delay="300">- Presale Launch</div>
+                  <div class="review__author aos-init" data-aos="animation-scale-y" data-aos-delay="300">- Initial Shilling</div>
+                </div>
+              </div></div><div class="owl-item active" style="width: 450px;"><div class="review__item">
+                <div class="review__ava aos-init" data-aos="animation-scale-y" data-aos-delay="50">Q2</div>
+                <div class="review__details">
+                  <div class="review__blockquote aos-init" data-aos="animation-scale-y" data-aos-delay="100">After Launch</div>
+                  <div class="review__info aos-init" data-aos="animation-scale-y" data-aos-delay="200">Partnerships &amp; Marketing</div>
+                  <div class="review__author aos-init" data-aos="animation-scale-y" data-aos-delay="300">- Influencers Partnership for Marketing</div>
+                  <div class="review__author aos-init" data-aos="animation-scale-y" data-aos-delay="300">- Listing on CG</div>
+                  <div class="review__author aos-init" data-aos="animation-scale-y" data-aos-delay="300">- Listing on CM</div>
+                  <div class="review__author aos-init" data-aos="animation-scale-y" data-aos-delay="300">- Price Bot</div>
+                  <div class="review__author aos-init" data-aos="animation-scale-y" data-aos-delay="300">- Audit</div>
+                </div>
+              </div></div><div class="owl-item" style="width: 450px;"><div class="review__item">
+                <div class="review__ava aos-init" data-aos="animation-scale-y" data-aos-delay="50">Q3</div>
+                <div class="review__details">
+                  <div class="review__blockquote aos-init" data-aos="animation-scale-y" data-aos-delay="100">After Launch</div>
+                  <div class="review__info aos-init" data-aos="animation-scale-y" data-aos-delay="200">Uptrend</div>
+                  <div class="review__author aos-init" data-aos="animation-scale-y" data-aos-delay="300">- WhiteBot</div>
+                  <div class="review__author aos-init" data-aos="animation-scale-y" data-aos-delay="300">- NFT Marketplace</div>
+                  <div class="review__author aos-init" data-aos="animation-scale-y" data-aos-delay="300">- Partnership with CHARITY</div>
+                  <div class="review__author aos-init" data-aos="animation-scale-y" data-aos-delay="300">- Viral Marketing</div>
+                </div>
+              </div></div><div class="owl-item" style="width: 450px;"><div class="review__item">
+                <div class="review__ava aos-init" data-aos="animation-scale-y" data-aos-delay="50">Q4</div>
+                <div class="review__details">
+                  <div class="review__blockquote aos-init" data-aos="animation-scale-y" data-aos-delay="100">More to come</div>
+                  <div class="review__info aos-init" data-aos="animation-scale-y" data-aos-delay="200">Uptrend</div>
+                  <div class="review__author aos-init" data-aos="animation-scale-y" data-aos-delay="300">- Push to more exchanges</div>
+                  <div class="review__author aos-init" data-aos="animation-scale-y" data-aos-delay="300">- Partnership with companies</div>
+                  <div class="review__author aos-init" data-aos="animation-scale-y" data-aos-delay="300">- Push to global exposure</div>
+                </div>
+              </div></div><div class="owl-item cloned" style="width: 450px;"><div class="review__item">
+                <div class="review__ava aos-init" data-aos="animation-scale-y" data-aos-delay="50">Q2</div>
+                <div class="review__details">
+                  <div class="review__blockquote aos-init" data-aos="animation-scale-y" data-aos-delay="100">Protocol Initialized</div>
+                  <div class="review__info aos-init" data-aos="animation-scale-y" data-aos-delay="200">Establish foundations</div>
+                  <div class="review__author aos-init" data-aos="animation-scale-y" data-aos-delay="300">- Contract Creation</div>
+                  <div class="review__author aos-init" data-aos="animation-scale-y" data-aos-delay="300">- Social Media Accounts</div>
+                  <div class="review__author aos-init" data-aos="animation-scale-y" data-aos-delay="300">- Presale Launch</div>
+                  <div class="review__author aos-init" data-aos="animation-scale-y" data-aos-delay="300">- Initial Shilling</div>
+                </div>
+              </div></div><div class="owl-item cloned" style="width: 450px;"><div class="review__item">
+                <div class="review__ava aos-init" data-aos="animation-scale-y" data-aos-delay="50">Q2</div>
+                <div class="review__details">
+                  <div class="review__blockquote aos-init" data-aos="animation-scale-y" data-aos-delay="100">After Launch</div>
+                  <div class="review__info aos-init" data-aos="animation-scale-y" data-aos-delay="200">Partnerships &amp; Marketing</div>
+                  <div class="review__author aos-init" data-aos="animation-scale-y" data-aos-delay="300">- Influencers Partnership for Marketing</div>
+                  <div class="review__author aos-init" data-aos="animation-scale-y" data-aos-delay="300">- Listing on CG</div>
+                  <div class="review__author aos-init" data-aos="animation-scale-y" data-aos-delay="300">- Listing on CM</div>
+                  <div class="review__author aos-init" data-aos="animation-scale-y" data-aos-delay="300">- Price Bot</div>
+                  <div class="review__author aos-init" data-aos="animation-scale-y" data-aos-delay="300">- Audit</div>
+                </div>
+              </div></div></div></div><div class="owl-nav disabled"><button class="owl-prev">
+    <svg class="icon icon-arrow-prev">
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="img/sprite.svg#icon-arrow-prev"></use>
+    </svg></button><button class="owl-next"><svg class="icon icon-arrow-next">
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="img/sprite.svg#icon-arrow-next"></use>
+    </svg></button></div><div class="owl-dots"><button role="button" class="owl-dot active"><span></span></button><button role="button" class="owl-dot"><span></span></button></div></div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="system section">
+        <div class="system__center center">
+          <div class="system__head aos-init" data-aos="animation-scale-y">
+            <h2 class="system__title title">
+              On each transaction CheshireCat protocol <span class="title__link">automatically distributes rewards</span> to holders and liquidity pool.
+            </h2>
+            <div class="system__info info">💲 Simply hold CheshireCat in your wallet and you will get more.</div>
+          </div>
+        </div>
+      </div>
+      <div class="indicators section">
+        <div class="indicators__center center">
+          <div class="indicators__head aos-init" data-aos="animation-scale-y">
+            <h2 class="indicators__title title">The community ❤️ CheshireCat</h2>
+          </div>
+          <div class="indicators__list">
+            <div class="indicators__item aos-init" data-aos="animation-scale-y">
+              <div class="indicators__counter">350+</div>
+              <div class="indicators__info info">Holders</div>
+            </div>
+            <div class="indicators__item aos-init" data-aos="animation-scale-y" data-aos-delay="150">
+              <div class="indicators__counter">400+</div>
+              <div class="indicators__info info">Transfers</div>
+            </div>
+            <div class="indicators__item aos-init" data-aos="animation-scale-y" data-aos-delay="200">
+              <div class="indicators__counter">300+</div>
+              <div class="indicators__info info">Active Members</div>
+            </div>
+            <div class="indicators__item aos-init" data-aos="animation-scale-y" data-aos-delay="250">
+              <div class="indicators__counter">10%</div>
+              <div class="indicators__info info">Total tax</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="trial section" id="how-to-buy">
+        <div class="trial__center center">
+          <div class="trial__wrap aos-init" data-aos="animation-scale-y">
+
+            <div class="trial__box">
+              <h2 class="trial__title title">How to Buy CheshireCat</h2>
+              <div class="trial__info info">PancakeSwap Instructions</div>
+              <ul class="buy-fe">
+                <li>
+                  <div class="list-item-title">1. Download Metamask for free</div>
+                  <div class="list-item-text">
+                    Metamask is a crypto wallet &amp; gateway to blockchain that can be used to trade on the Binance Smart Chain.
+                    <br>
+                    Get it for free at the <a class="title__link" href="https://metamask.io/" target="_blank" title="metamask">Metamask official website</a>.
+                  </div>
+                </li>
+                <li>
+                  <div class="list-item-title">2. Connect your MetaMask to Binance Smart Chain</div>
+                  <div class="list-item-text">
+                    <a class="title__link" href="https://academy.binance.com/en/articles/connecting-metamask-to-binance-smart-chain" target="_blank" title="Binance.com">Learn How</a>
+                  </div>
+                </li>
+                <li>
+                  <div class="list-item-title">3. Buy BNB</div>
+                  <div class="list-item-text">
+                    Buy Binance Coin (BNB) from <a class="title__link" href="https://www.binance.com/en/trade/BNB_BTC" target="_blank" title="Binance.com">Binance.com</a> or
+                    <a class="title__link" href="https://www.binance.us/en/trade/BNB_BTC" target="_blank" title="Binance.us">Binance.us</a> then withdraw to your Metamask.
+                  </div>
+                </li>
+                <li>
+                  <div class="list-item-title">4. Buy on PancakeSwap</div>
+
+                  <div class="list-item-text">
+
+                    <div>
+                      Go to <a class="title__link" href="https://exchange.pancakeswap.finance/#/swap?inputCurrency=0xae769cfab544994927e5e89238391c140e84e46f" target="_blank" title="Buy CheshireCat on PancakeSwap">this link at PancakeSwap</a> and accept the pop-up message.
+                    </div>
+
+                    <div class="or">OR</div>
+
+                    <div>
+                      Click "Select a currency" and enter this contract address into the search field,
+                      and you should be able to find CheshireCat.
+                      <input type="text" readonly="" class="address-code" value="0xae769cfab544994927e5e89238391c140e84e46f">
+                    </div>
+
+                    <div class="slippage">
+                      Click on the <svg viewBox="0 0 24 24" width="24px" color="currentColor" xmlns="http://www.w3.org/2000/svg" class="sc-bdfBwQ hufIwr"><path d="M19.43 12.98C19.47 12.66 19.5 12.34 19.5 12C19.5 11.66 19.47 11.34 19.43 11.02L21.54 9.37C21.73 9.22 21.78 8.95 21.66 8.73L19.66 5.27C19.54 5.05 19.27 4.97 19.05 5.05L16.56 6.05C16.04 5.65 15.48 5.32 14.87 5.07L14.49 2.42C14.46 2.18 14.25 2 14 2H9.99996C9.74996 2 9.53996 2.18 9.50996 2.42L9.12996 5.07C8.51996 5.32 7.95996 5.66 7.43996 6.05L4.94996 5.05C4.71996 4.96 4.45996 5.05 4.33996 5.27L2.33996 8.73C2.20996 8.95 2.26996 9.22 2.45996 9.37L4.56996 11.02C4.52996 11.34 4.49996 11.67 4.49996 12C4.49996 12.33 4.52996 12.66 4.56996 12.98L2.45996 14.63C2.26996 14.78 2.21996 15.05 2.33996 15.27L4.33996 18.73C4.45996 18.95 4.72996 19.03 4.94996 18.95L7.43996 17.95C7.95996 18.35 8.51996 18.68 9.12996 18.93L9.50996 21.58C9.53996 21.82 9.74996 22 9.99996 22H14C14.25 22 14.46 21.82 14.49 21.58L14.87 18.93C15.48 18.68 16.04 18.34 16.56 17.95L19.05 18.95C19.28 19.04 19.54 18.95 19.66 18.73L21.66 15.27C21.78 15.05 21.73 14.78 21.54 14.63L19.43 12.98ZM12 15.5C10.07 15.5 8.49996 13.93 8.49996 12C8.49996 10.07 10.07 8.5 12 8.5C13.93 8.5 15.5 10.07 15.5 12C15.5 13.93 13.93 15.5 12 15.5Z"></path></svg>
+                      and set the slippage to between 11-12%.
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="list-item-title">5. Set the amount</div>
+                  <div class="list-item-text">
+                    How much CheshireCat do you want to purchase? set it and press the swap button.
+                  </div>
+                </li>
+                <li>
+                  <div class="list-item-title">🚀 Take off with $CHESCAT!</div>
+                </li>
+              </ul>
+            </div>
+
+            <a class="pc-cc" href="https://exchange.pancakeswap.finance/#/swap?inputCurrency=0xae769cfab544994927e5e89238391c140e84e46f" data-effect="mfp-zoom-in">
+              <img src="./chescat_files/pc.png" alt="pancakeswap">
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <footer class="footer">
+          <a class="footer__logo" href="https://cheshirecat.web.app/#"><img class="footer__pic footer__pic_dark" src="./chescat_files/logo-dark.svg" alt=""><img class="footer__pic footer__pic_white" src="./chescat_files/logo-white.svg" alt=""></a>
+          <p>Cheshire Cat invites you to the Mad Tea Party. This grizzly furry ball invades the BSC to be called a token and strives for transparency and fairness as Cat wants no tokens for meowself. 💸TAX🟣 5% added to Liquidity Pool 5% Reflected to all holders during buy&amp;sell</p>
+
+        <p class="highlight">0 TEAM TOKENS
+          <br>
+          0 MARKETING TOKENS
+          <br>
+          NO MINTING FUNCTION</p>
+        <p class="highlight">100% Community Driven</p>
+
+        <p class="credit">Built with 🧡 by the community for the community.
+          <br>
+          Tip Jar: 0xc47abe40161cE46B045DC98386Db33Ac527aF430
+        </p>
+
+        <div class="social">
+            <a class="social__link" href="https://t.me/CheshireCatBSC">
+              <img src="./chescat_files/telegram.png" alt="CheshireCatBSC">
+            </a>
+          </div>
+      </footer>
+    </div>
+    <script src="./chescat_files/app.js.download"></script>
+    <script src="./chescat_files/jquery.roadmap.min.js.download"></script>
+    <script src="./chescat_files/common.js.download"></script>
+  
+
+</body></html>
